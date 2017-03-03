@@ -47,7 +47,8 @@ class PropertyController extends BackendController
      */
     public function show($id)
     {
-        dd($id);
+        $property = Property::find($id);
+        return view('property.show', compact('property'));
     }
 
     /**

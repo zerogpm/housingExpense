@@ -11,12 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/', 'Auth\LoginController@login');
+
+});
 
 Route::get('/home', 'Backend\HomeController@index');
 
 Route::resource('/property', 'Backend\PropertyController');
+Route::get('/transaction/save', 'Backend\TransactionController@store');

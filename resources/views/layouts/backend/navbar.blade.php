@@ -21,13 +21,13 @@
                 <li class="dropdown user user-menu">
                     <?php $currentUser = Auth::user() ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="backend/img/user2-160x160.jpg" class="user-image" alt="{{$currentUser->name}}">
+                        <img src="/backend/img/user2-160x160.jpg" class="user-image" alt="{{$currentUser->name}}">
                         <span class="hidden-xs">{{ $currentUser->name }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="backend/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="/backend/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                             <p>
                                 {{ $currentUser->name }} - Web Developer
