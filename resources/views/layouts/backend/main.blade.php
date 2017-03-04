@@ -6,8 +6,12 @@
     <title>@yield('title', 'Housing')</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- CSRFToken -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="/backend/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/backend/css/lib/sweetalert2.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/backend/plugins/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -39,7 +43,7 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.6
+            <b>Version</b> 2.3.3
         </div>
         <strong>Copyright &copy; 2017 </strong> All rights
         reserved.
@@ -54,6 +58,7 @@
 <script src="/backend/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/backend/js/app.min.js"></script>
+<script src="/backend/js/lib/sweetalert2.min.js"></script>
 @yield('scripts')
 </body>
 </html>

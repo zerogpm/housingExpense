@@ -26,4 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/home', 'Backend\HomeController@index');
 
 Route::resource('/property', 'Backend\PropertyController');
-Route::get('/transaction/save', 'Backend\TransactionController@store');
+
+Route::post('/transaction/save', [
+    'as' => 'ajax',
+    'uses' => 'Backend\TransactionController@store'
+]);

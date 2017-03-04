@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Model\Category;
 use App\Model\Property;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,8 @@ class PropertyController extends BackendController
     public function show($id)
     {
         $property = Property::find($id);
-        return view('property.show', compact('property'));
+        $categories = Category::pluck('title', 'id');
+        return view('property.show', compact('property', 'categories'));
     }
 
     /**
