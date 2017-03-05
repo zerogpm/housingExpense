@@ -27,12 +27,15 @@ $( document ).ready(function() {
       url:'/transaction/save',
       data:data,
       success:function (data) {
+
         swal(
           'Good job!',
           'You clicked the button!',
           'success'
-        )
-        $('input:text, textarea').val('');
+        ).then(function () {
+          $('input:text, textarea').val('');
+        });
+
         console.log(data);
       },
       error:function (data) {

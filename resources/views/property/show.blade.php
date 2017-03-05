@@ -18,9 +18,9 @@
                     <small>#007612</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="#">Examples</a></li>
-                    <li class="active">Invoice</li>
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Property</a></li>
+                    <li><a href="#">List Property</a></li>
+                    <li class="active">Housing Details</li>
                 </ol>
             </section>
         </section>
@@ -37,7 +37,8 @@
                         <i class="fa fa-edit"></i> History
                     </a>
                     <a class="btn btn-app">
-                        <i class="fa fa-play"></i> Play
+                        <i type="button" class="fa fa-upload" data-toggle="modal" data-target="#category">
+                        </i> Add Categories
                     </a>
                     <a class="btn btn-app">
                         <i class="fa fa-repeat"></i> Repeat
@@ -178,6 +179,35 @@
             </div>
         </section>
         <!-- /.content -->
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="category" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="transaction">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="amount">Category Name</label>
+                                <input type="text" class="form-control" id="amount" placeholder="Enter amount" name="amount" data-parsley-type="number" required="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection
