@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Model\Category;
 use App\Model\Property;
+use App\Model\Transaction;
 use Illuminate\Http\Request;
 
 class PropertyController extends BackendController
@@ -85,5 +86,22 @@ class PropertyController extends BackendController
     public function destroy($id)
     {
         //
+    }
+
+    public function record(Request $request, $id)
+    {
+        $term = $request->term;
+        $transactions = Transaction::where(function($query) use ($term, $id) {
+            $keywords = '%' . $term . '%';
+            $query->orWhere("amount", 'LIKE', $keywords);
+            $query->orWhere("balanceType", 'LIKE', $keywords);
+            $query->orWhere("description", 'LIKE', $keywords);
+            $query->orWhere("date", 'LIKE', $keywords);
+        })
+            ->where('property_id', $id)
+            ->orderBy('date', 'desc')
+            ->paginate(6);
+
+        return view('property.record', compact('transactions', 'id'));
     }
 }

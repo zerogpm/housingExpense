@@ -27,6 +27,11 @@ Route::get('/home', 'Backend\HomeController@index');
 
 Route::resource('/property', 'Backend\PropertyController');
 
+Route::get('/property/record/{id}', [
+    'as' => 'property.record',
+    'uses' => 'Backend\PropertyController@record'
+]);
+
 Route::post('/transaction/save', [
     'as' => 'ajax',
     'uses' => 'Backend\TransactionController@store'

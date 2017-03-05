@@ -33,7 +33,7 @@
                     <h3 class="box-title">Application Options</h3>
                 </div>
                 <div class="box-body">
-                    <a class="btn btn-app">
+                    <a class="btn btn-app" href="{{ route('property.record', [$property->id]) }}">
                         <i class="fa fa-edit"></i> History
                     </a>
                     <a class="btn btn-app">
