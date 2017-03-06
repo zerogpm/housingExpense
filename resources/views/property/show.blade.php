@@ -34,7 +34,7 @@
                 </div>
                 <div class="box-body">
                     <a class="btn btn-app" href="{{ route('property.record', [$property->id]) }}">
-                        <i class="fa fa-edit"></i> History
+                        <i class="fa fa-edit"></i> Record
                     </a>
                     <a class="btn btn-app">
                         <i type="button" class="fa fa-upload" data-toggle="modal" data-target="#category">
@@ -198,6 +198,10 @@
                             <div class="form-group">
                                 <label for="amount">Category Name</label>
                                 <input type="text" class="form-control" id="amount" placeholder="Enter amount" name="amount" data-parsley-type="number" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="color">Pick a Color</label>
+                                <input type="color" class="form-control" id="color" name="color" value="#ff0000" required="">
                             </div>
                         </div>
                     </form>

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class PropertyController extends BackendController
 {
+    protected $limit = 6;
     /**
      * Display a listing of the resource.
      *
@@ -100,7 +101,7 @@ class PropertyController extends BackendController
         })
             ->where('property_id', $id)
             ->orderBy('date', 'desc')
-            ->paginate(6);
+            ->paginate($this->limit);
 
         return view('property.record', compact('transactions', 'id'));
     }

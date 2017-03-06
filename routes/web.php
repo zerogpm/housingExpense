@@ -25,6 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/home', 'Backend\HomeController@index');
 
+//Property
+
 Route::resource('/property', 'Backend\PropertyController');
 
 Route::get('/property/record/{id}', [
@@ -32,7 +34,16 @@ Route::get('/property/record/{id}', [
     'uses' => 'Backend\PropertyController@record'
 ]);
 
+//Transaction
+
 Route::post('/transaction/save', [
     'as' => 'ajax',
     'uses' => 'Backend\TransactionController@store'
+]);
+
+//Category
+
+Route::get('/category', [
+    'as' => 'category.record',
+    'uses' => 'Backend\CategoryController@index'
 ]);

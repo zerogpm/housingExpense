@@ -12,13 +12,11 @@
         <section class="content-header">
             <section class="content-header">
                 <h1>
-                    Housing Details
+                    Category Details
                     <small>#007612</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Property</a></li>
-                    <li><a href="#">List Property</a></li>
-                    <li class="active">Record Details</li>
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Category Details</a></li>
                 </ol>
             </section>
         </section>
@@ -31,7 +29,7 @@
                     <h3 class="box-title">Application Options</h3>
                 </div>
                 <div class="box-body">
-                    <a class="btn btn-app" href="{{ route('property.show', [$id]) }}">
+                    <a class="btn btn-app" href="#">
                         <i class="fa fa-mail-reply"></i> Go Back
                     </a>
                     <a class="btn btn-app">
@@ -77,7 +75,7 @@
                             <h3 class="box-title">Responsive Hover Table</h3>
 
                             <div class="box-tools">
-                                <form action="{{ route("property.record", [$id]) }}" role="search">
+                                <form action="{{ route('category.record') }}" role="search">
                                     <div class="input-group input-group-sm" style="width: 150px;">
                                         <input type="text" name="term" value="{{ Request::get("term") }}" class="form-control pull-right" placeholder="Search">
 
@@ -92,24 +90,25 @@
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
-                                    <th>Amount</th>
-                                    <th>Blalance Type</th>
-                                    <th>Note</th>
+                                    <th>Title</th>
                                     <th>Date</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
-                                @foreach( $transactions as $transaction)
+                                @foreach($categories as $category )
                                     <tr>
-                                        <td>$ {{ $transaction->amount }}</td>
-                                        <td>{{ $transaction->balanceType }}</td>
-                                        <td>{{ $transaction->description }}</td>
-                                        <td>{{ $transaction->date }}</td>
+                                        <td>{{ $category->title }}</td>
+                                        <td>{{ $category->created_at }}</td>
+                                        <td><button type="button" class="btn btn-block btn-primary btn-sm">Edit</button></td>
+                                        <td><button type="button" class="btn btn-block btn-danger btn-sm">Delete</button></td>
                                     </tr>
                                 @endforeach
+
                             </table>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix">
-                            {{ $transactions->links() }}
+                            {{ $categories->links() }}
                         </div>
                     </div>
                     <!-- /.box -->
