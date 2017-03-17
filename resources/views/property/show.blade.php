@@ -220,5 +220,5 @@
 <script src="/backend/js/lib/bootstrap-datepicker.js"></script>
 <script src="/backend/js/lib/select2.full.min.js"></script>
 <script src="/backend/js/lib/parsley.min.js"></script>
-<script src="/backend/js/custom.js"></script>
+<script src="/backend/js/property/transcation.js"></script>
 @endsection

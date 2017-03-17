@@ -28,7 +28,7 @@ class PropertyController extends BackendController
      */
     public function create()
     {
-        dd('Create new');
+        return view('property.create');
     }
 
     /**
