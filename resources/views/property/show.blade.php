@@ -192,24 +192,24 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form role="form" id="transaction">
-                        <div class="form-group">
+                <form role="form" class="category" data-parsley-validate="">
+                    <div class="modal-body">
                             <div class="form-group">
-                                <label for="amount">Category Name</label>
-                                <input type="text" class="form-control" id="amount" placeholder="Enter amount" name="amount" data-parsley-type="number" required="">
+                                <div class="form-group">
+                                    <label for="amount">Category Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="color">Pick a Color</label>
+                                    <input type="color" class="form-control" id="color" name="color" value="#ff0000" required="">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="color">Pick a Color</label>
-                                <input type="color" class="form-control" id="color" name="color" value="#ff0000" required="">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

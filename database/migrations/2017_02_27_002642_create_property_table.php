@@ -19,10 +19,10 @@ class CreatePropertyTable extends Migration
             $table->string('address');
             $table->integer('user_id')->unsigned()->index();
             $table->string('post_code');
-            $table->float('interest_rate', 8, 4);
-            $table->float('principal_amount');
-            $table->float('payment');
-            $table->string('payment_date');
+            $table->decimal('interest_rate');
+            $table->decimal('principal_amount', 30,2);
+            $table->decimal('payment', 30,2);
+            $table->timestamp('payment_date')->nullable();
             $table->timestamp('purchased_date')->nullable();
             $table->timestamp('renew_date')->nullable();
             $table->timestamps();

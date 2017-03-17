@@ -6,6 +6,9 @@ use App\Model\Category;
 use App\Model\Property;
 use App\Model\Transaction;
 use Illuminate\Http\Request;
+use App\Http\Requests\PropertyRequest;
+use Illuminate\Support\Facades\Crypt;
+use Carbon\Carbon;
 
 class PropertyController extends BackendController
 {
@@ -37,9 +40,34 @@ class PropertyController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PropertyRequest $request)
     {
-        //
+        $property = new Property();
+        $property->description = $request->description;
+        $property->address = $request->address;
+        $property->user_id = Crypt::decryptString($request->user_id);
+        $property->post_code = $request->post_code;
+        $property->interest_rate = $request->interest_rate;
+        $property->principal_amount = $request->principal_amount;
+        $property->payment = $request->payment;
+        $property->payment_date = Carbon::parse($request->payment_date);
+        $property->purchased_date = Carbon::parse($request->purchased_date);
+        $property->renew_date = Carbon::parse($request->renew_date);
+
+
+        if ($property->save()) {
+            $response = [
+                'msg'     => 'property created',
+                'property' => $property
+            ];
+        } else {
+            $response = [
+                'msg'     => 'property Failed',
+                'property' => $property
+            ];
+        }
+
+        return response()->json($response, 201);
     }
 
     /**

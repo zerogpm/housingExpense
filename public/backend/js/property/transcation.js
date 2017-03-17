@@ -12,10 +12,18 @@ $( document ).ready(function() {
   $('#transaction').submit(function(e) {
     e.preventDefault();
     var data = $(this).serialize();
-    ajaxCall(data);
+    ajaxCall(data, '/transaction/save');
   });
 
-  function ajaxCall(data) {
+  $('form.category').submit(function(e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    console.log($(this));
+    console.log(data);
+  });
+
+  function ajaxCall(data, url) {
+
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -24,7 +32,7 @@ $( document ).ready(function() {
 
     $.ajax({
       type:'POST',
-      url:'/transaction/save',
+      url:url,
       data:data,
       success:function (data) {
 

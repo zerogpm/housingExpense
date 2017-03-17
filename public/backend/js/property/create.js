@@ -9,7 +9,7 @@ $( document ).ready(function() {
   $(".select2").select2();
 
   //Ajax save
-  $('#transaction').submit(function(e) {
+  $('#property').submit(function(e) {
     e.preventDefault();
     var data = $(this).serialize();
     ajaxCall(data);
@@ -24,7 +24,7 @@ $( document ).ready(function() {
 
     $.ajax({
       type:'POST',
-      url:'/transaction/save',
+      url:'/property',
       data:data,
       success:function (data) {
 

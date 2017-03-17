@@ -32,12 +32,8 @@
                     <h3 class="box-title">Application Options</h3>
                 </div>
                 <div class="box-body">
-                    <a class="btn btn-app" href="#">
-                        <i class="fa fa-edit"></i> Record
-                    </a>
-                    <a class="btn btn-app">
-                        <i type="button" class="fa fa-upload" data-toggle="modal" data-target="#category">
-                        </i> Add Categories
+                    <a class="btn btn-app" href="{{ route('property.index') }}">
+                        <i class="fa fa-edit"></i> Listing Property
                     </a>
                 </div>
                 <!-- /.box-body -->
@@ -69,7 +65,7 @@
                                 <div class="form-group">
                                     <label for="interest_rate">Interest Rate:</label>
                                     <input type="text" class="form-control" id="interest_rate" placeholder="Enter Rate" name="interest_rate" data-parsley-type="number" required="">
-                                    <input type="hidden" class="form-control" id="userID" name="userID" value="{{ Crypt::encryptString(Auth::user()->id) }}">
+                                    <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ Crypt::encryptString(Auth::user()->id) }}">
                                 </div>
 
                                 <div class="form-group">
