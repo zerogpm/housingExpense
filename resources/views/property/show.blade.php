@@ -197,7 +197,7 @@
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="amount">Category Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required="">
+                                    <input type="text" class="form-control" id="title" placeholder="Enter Name" name="title" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="color">Pick a Color</label>

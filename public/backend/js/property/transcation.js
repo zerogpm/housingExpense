@@ -18,8 +18,7 @@ $( document ).ready(function() {
   $('form.category').submit(function(e) {
     e.preventDefault();
     var data = $(this).serialize();
-    console.log($(this));
-    console.log(data);
+    ajaxCall(data,'/category/add')
   });
 
   function ajaxCall(data, url) {
@@ -36,9 +35,19 @@ $( document ).ready(function() {
       data:data,
       success:function (data) {
 
+        if(data.msg == 'error') {
+          swal(
+            data.msg,
+            data.color,
+            'error'
+          );
+
+          return
+        }
+
         swal(
           'Good job!',
-          'You clicked the button!',
+          data.msg,
           'success'
         ).then(function () {
           $('input:text, textarea').val('');

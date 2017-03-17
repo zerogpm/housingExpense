@@ -47,3 +47,8 @@ Route::get('/category', [
     'as' => 'category.record',
     'uses' => 'Backend\CategoryController@index'
 ]);
+
+Route::post('/category/add', [
+    'as' => 'category.store',
+    'uses' => 'Backend\CategoryController@store'
+]);
