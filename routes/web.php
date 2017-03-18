@@ -52,3 +52,9 @@ Route::post('/category/add', [
     'as' => 'category.store',
     'uses' => 'Backend\CategoryController@store'
 ]);
+
+//Chart
+Route::get('/chart/getChartData/{id}', [
+    'as' => 'chart.data',
+    'uses' => 'Backend\ChartController@getChartData'
+]);

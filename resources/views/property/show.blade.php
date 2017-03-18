@@ -40,8 +40,8 @@
                         <i type="button" class="fa fa-upload" data-toggle="modal" data-target="#category">
                         </i> Add Categories
                     </a>
-                    <a class="btn btn-app">
-                        <i class="fa fa-repeat"></i> Repeat
+                    <a class="btn btn-app" href="{{ route('chart.data', [$property->id]) }}">
+                        <i class="fa fa-area-chart"></i> Chart
                     </a>
                     <a class="btn btn-app">
                         <i class="fa fa-pause"></i> Pause
