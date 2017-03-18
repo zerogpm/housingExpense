@@ -27,7 +27,7 @@ class TranscationRequest extends FormRequest
             'amount'       => 'required|Numeric',
             'balanceType'  => 'required',
             'categories'  => 'required',
-            'date'         => 'required|Date'
+            'insert_date'         => 'required|Date'
         ];
     }
 }

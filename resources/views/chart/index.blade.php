@@ -31,6 +31,18 @@
 
         <!-- Main content -->
         <section class="content">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Application Options</h3>
+                </div>
+                <div class="box-body">
+                    <a class="btn btn-app" href="{{ route('property.show', [$id]) }}">
+                        <i class="fa fa-mail-reply"></i> Go Back
+                    </a>
+                </div>
+
+            </div>
+
             <div class="row">
                 <div class="col-md-6">
                     <!-- AREA CHART -->

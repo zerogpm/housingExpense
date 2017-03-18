@@ -125,10 +125,10 @@ class PropertyController extends BackendController
             $query->orWhere("amount", 'LIKE', $keywords);
             $query->orWhere("balanceType", 'LIKE', $keywords);
             $query->orWhere("description", 'LIKE', $keywords);
-            $query->orWhere("date", 'LIKE', $keywords);
+            $query->orWhere("insert_date", 'LIKE', $keywords);
         })
             ->where('property_id', $id)
-            ->orderBy('date', 'desc')
+            ->orderBy('insert_date', 'desc')
             ->paginate($this->limit);
 
         return view('property.record', compact('transactions', 'id'));

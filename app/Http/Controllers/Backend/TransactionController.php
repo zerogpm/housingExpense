@@ -19,7 +19,7 @@ class TransactionController extends Controller
         $transaction->categories_id = $request->categories;
         $transaction->user_id = Crypt::decryptString($request->userID);
         $transaction->property_id = Crypt::decryptString($request->propertyID);
-        $transaction->date = Carbon::parse($request->date);
+        $transaction->insert_date = Carbon::parse($request->insert_date);
 
         if ($transaction->save()) {
             $response = [

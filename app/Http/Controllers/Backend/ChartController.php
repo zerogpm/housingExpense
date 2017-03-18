@@ -24,6 +24,6 @@ class ChartController extends BackendController
         $color = $category->pluck('color');
         $sum = $data->pluck('sum');
 
-        return view('chart.index', compact('title', 'color', 'sum'));
+        return view('chart.index', compact('title', 'color', 'sum','id'));
     }
 }

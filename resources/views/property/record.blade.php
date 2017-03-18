@@ -102,7 +102,7 @@
                                         <td>$ {{ $transaction->amount }}</td>
                                         <td>{{ $transaction->balanceType }}</td>
                                         <td>{{ $transaction->description }}</td>
-                                        <td>{{ $transaction->date }}</td>
+                                        <td>{{ $transaction->insert_date }}</td>
                                     </tr>
                                 @endforeach
                             </table>

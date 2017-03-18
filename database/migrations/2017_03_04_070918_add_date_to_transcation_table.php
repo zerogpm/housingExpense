@@ -14,7 +14,7 @@ class AddDateToTranscationTable extends Migration
     public function up()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->timestamp('date')->after('property_id')->nullable();
+            $table->timestamp('insert_date')->after('property_id')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddDateToTranscationTable extends Migration
     public function down()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->dropColumn('date');
+            $table->dropColumn('insert_date');
         });
     }
 }
