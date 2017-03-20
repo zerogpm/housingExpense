@@ -8,9 +8,11 @@
 @section('content')
 
     <!-- Data -->
-    <span id="title" data-title="{{ json_encode($title) }}"></span>
-    <span id="color" data-color="{{ json_encode($color) }}"></span>
-    <span id="sum" data-sum="{{ json_encode($sum) }}"></span>
+    <span id="title" data-title="{{ json_encode($barTitle) }}"></span>
+    <span id="color" data-color="{{ json_encode($barColor) }}"></span>
+    <span id="sum" data-sum="{{ json_encode($barSum) }}"></span>
+    <span id="donutSum" data-donut-sum="{{ json_encode($donutSum) }}"></span>
+    <span id="donutMonth" data-donut-month="{{ json_encode($donutMonth) }}"></span>
     <!-- end Data -->
 
     <div class="content-wrapper">
@@ -48,7 +50,7 @@
                     <!-- AREA CHART -->
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Area Chart</h3>
+                            <h3 class="box-title">Bar Chart</h3>
 
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
