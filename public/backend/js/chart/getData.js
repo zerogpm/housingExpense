@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 
+  //title
   var title = $('#title').data('title');
   var color = $('#color').data('color');
   var sum = $('#sum').data('sum');
