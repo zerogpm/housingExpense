@@ -36,8 +36,8 @@
                     <a class="btn btn-app" href="{{ route('property.record', [$property->id]) }}">
                         <i class="fa fa-edit"></i> Record
                     </a>
-                    <a class="btn btn-app">
-                        <i type="button" class="fa fa-upload" data-toggle="modal" data-target="#category">
+                    <a class="btn btn-app" data-toggle="modal" data-target="#category">
+                        <i type="button" class="fa fa-upload">
                         </i> Add Categories
                     </a>
                     <a class="btn btn-app" href="{{ route('chart.data', [$property->id]) }}">

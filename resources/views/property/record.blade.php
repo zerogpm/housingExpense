@@ -105,6 +105,9 @@
                                         <td>{{ $transaction->insert_date }}</td>
                                     </tr>
                                 @endforeach
+                                <tr>
+                                    <td>Total: $ {{ $totalAmount }}</td>
+                                </tr>
                             </table>
                         </div>
                         <!-- /.box-body -->

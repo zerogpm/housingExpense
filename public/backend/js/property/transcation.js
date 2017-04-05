@@ -12,16 +12,16 @@ $( document ).ready(function() {
   $('#transaction').submit(function(e) {
     e.preventDefault();
     var data = $(this).serialize();
-    ajaxCall(data, '/transaction/save');
+    ajaxCall(data, '/transaction/save', 'transaction');
   });
 
   $('form.category').submit(function(e) {
     e.preventDefault();
     var data = $(this).serialize();
-    ajaxCall(data,'/category/add')
+    ajaxCall(data,'/category/add', 'category')
   });
 
-  function ajaxCall(data, url) {
+  function ajaxCall(data, url,type) {
 
     $.ajaxSetup({
       headers: {
@@ -35,7 +35,7 @@ $( document ).ready(function() {
       data:data,
       success:function (data) {
 
-        if(data.msg == 'error') {
+        if(data.msg === 'error') {
           swal(
             data.msg,
             data.color,
@@ -51,6 +51,9 @@ $( document ).ready(function() {
           'success'
         ).then(function () {
           $('input:text, textarea').val('');
+          if (type === "category") {
+            location.reload();
+          }
         });
 
         console.log(data);
