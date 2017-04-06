@@ -15,8 +15,8 @@ class ChartController extends BackendController
             ->groupBy('categories_id')
             ->get();
 
-        $barData = Transaction::select(DB::raw('sum(amount) as barSum, ANY_VALUE(monthname(insert_date)) as barMonth'))
-            ->groupBy(DB::raw('year(insert_date), month(insert_date)'))
+        $barData = Transaction::select(DB::raw('sum(amount) as barSum, monthname(insert_date) as barMonth'))
+            ->groupBy(DB::raw('monthname(insert_date)'))
             ->whereRaw("year(insert_date) = 2017 AND balanceType = 'Debit' ")
             ->get();
 
