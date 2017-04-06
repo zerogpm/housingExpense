@@ -130,9 +130,9 @@ class PropertyController extends BackendController
             ->where('property_id', $id)
             ->orderBy('insert_date', 'desc')
             ->paginate($this->limit);
-        $credit = (Int)Transaction::where('balanceType', 'Credit')->sum('amount');
-        $debet = (Int)Transaction::where('balanceType', 'Debit')->sum('amount');
-        $totalAmount = abs($credit - $debet);
+        $credit = (Double)Transaction::where('balanceType', 'Credit')->sum('amount');
+        $debet = (Double)Transaction::where('balanceType', 'Debit')->sum('amount');
+        $totalAmount = abs($debet - $credit);
 
         return view('property.record', compact('transactions', 'id', 'totalAmount'));
     }

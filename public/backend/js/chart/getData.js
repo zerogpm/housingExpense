@@ -3,12 +3,12 @@ $( document ).ready(function() {
   //title
   var title = $('#title').data('title');
   var color = $('#color').data('color');
-  var sum = $('#sum').data('sum');
+  var sum = $('#pie_sum').data('pie-sum');
 
-  var donutSum = $('#donutSum').data('donut-sum');
-  var donutMonth = $('#donutMonth').data('donut-month');
+  var donutSum = $('#barSum').data('bar-sum');
+  var donutMonth = $('#barMonth').data('bar-month');
 
-  var ctx = $('#areaChart');
+  var ctx = $('#barChart');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {

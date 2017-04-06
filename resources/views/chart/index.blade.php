@@ -10,9 +10,9 @@
     <!-- Data -->
     <span id="title" data-title="{{ json_encode($barTitle) }}"></span>
     <span id="color" data-color="{{ json_encode($barColor) }}"></span>
-    <span id="sum" data-sum="{{ json_encode($barSum) }}"></span>
-    <span id="donutSum" data-donut-sum="{{ json_encode($donutSum) }}"></span>
-    <span id="donutMonth" data-donut-month="{{ json_encode($donutMonth) }}"></span>
+    <span id="pie_sum" data-pie-sum="{{ json_encode($pieSum) }}"></span>
+    <span id="barSum" data-bar-sum="{{ json_encode($barSum) }}"></span>
+    <span id="barMonth" data-bar-month="{{ json_encode($barMonth) }}"></span>
     <!-- end Data -->
 
     <div class="content-wrapper">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="box-body">
                             <div class="chart">
-                                <canvas id="areaChart" style="height:250px"></canvas>
+                                <canvas id="barChart" style="height:250px"></canvas>
                             </div>
                         </div>
                         <!-- /.box-body -->

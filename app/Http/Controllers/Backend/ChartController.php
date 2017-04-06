@@ -10,29 +10,31 @@ class ChartController extends BackendController
 {
     public function getChartData($id)
     {
-        $barData = Transaction::SingleProperty($id)
+        $pieData = Transaction::SingleProperty($id)
             ->select(DB::raw('categories_id, sum(amount) as sum'))
             ->groupBy('categories_id')
             ->get();
 
-        $donutData = Transaction::select(DB::raw('sum(amount) as donutSum, ANY_VALUE(monthname(insert_date)) as donutMonth'))
+        $barData = Transaction::select(DB::raw('sum(amount) as barSum, ANY_VALUE(monthname(insert_date)) as barMonth'))
             ->groupBy(DB::raw('year(insert_date), month(insert_date)'))
+            ->whereRaw("year(insert_date) = 2017 AND balanceType = 'Debit' ")
             ->get();
 
-        $donutDataKeyAndValue = $donutData->pluck('donutSum', 'donutMonth');
+        $barDataKeyAndValue = $barData->pluck('barSum', 'barMonth');
 
-        $donutSum = $donutDataKeyAndValue->values();
-        $donutMonth = $donutDataKeyAndValue->keys();
+        $barSum = $barDataKeyAndValue->values();
+        $barMonth = $barDataKeyAndValue->keys();
 
-        $categoryID = $barData->pluck('categories_id');
+
+        $categoryID = $pieData->pluck('categories_id');
 
         $category = Category::whereIn('id', $categoryID)
             ->get();
 
         $barTitle = $category->pluck('title');
         $barColor = $category->pluck('color');
-        $barSum = $barData->pluck('sum');
+        $pieSum = $pieData->pluck('sum');
 
-        return view('chart.index', compact('barTitle', 'barColor', 'barSum', 'donutSum', 'donutMonth', 'id'));
+        return view('chart.index', compact('barTitle', 'barColor', 'pieSum', 'barSum', 'barMonth', 'id'));
     }
 }
