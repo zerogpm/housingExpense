@@ -8,6 +8,7 @@ use App\Model\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyRequest;
 use Illuminate\Support\Facades\Crypt;
+use App\Queries\RecordSearch;
 use Carbon\Carbon;
 
 class PropertyController extends BackendController
@@ -120,19 +121,10 @@ class PropertyController extends BackendController
     public function record(Request $request, $id)
     {
         $term = $request->term;
-        $transactions = Transaction::where(function($query) use ($term, $id) {
-            $keywords = '%' . $term . '%';
-            $query->orWhere("amount", 'LIKE', $keywords);
-            $query->orWhere("balanceType", 'LIKE', $keywords);
-            $query->orWhere("description", 'LIKE', $keywords);
-            $query->orWhere("insert_date", 'LIKE', $keywords);
-        })
-            ->where('property_id', $id)
-            ->orderBy('insert_date', 'desc')
-            ->paginate($this->limit);
+        $transactions = (new RecordSearch)->search($term, $id, $this->limit);
         $credit = (Double)Transaction::where('balanceType', 'Credit')->sum('amount');
-        $debet = (Double)Transaction::where('balanceType', 'Debit')->sum('amount');
-        $totalAmount = abs($debet - $credit);
+        $debit = (Double)Transaction::where('balanceType', 'Debit')->sum('amount');
+        $totalAmount = $debit - $credit;
 
         return view('property.record', compact('transactions', 'id', 'totalAmount'));
     }

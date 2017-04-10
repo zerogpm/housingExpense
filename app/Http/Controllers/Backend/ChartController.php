@@ -3,22 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Model\Category;
-use App\Model\Transaction;
-use Illuminate\Support\Facades\DB;
+use App\Repositories\GraphRepository;
 
 class ChartController extends BackendController
 {
     public function getChartData($id)
     {
-        $pieData = Transaction::SingleProperty($id)
-            ->select(DB::raw('categories_id, sum(amount) as sum'))
-            ->groupBy('categories_id')
-            ->get();
-
-        $barData = Transaction::select(DB::raw('sum(amount) as barSum, monthname(insert_date) as barMonth'))
-            ->groupBy(DB::raw('monthname(insert_date)'))
-            ->whereRaw("year(insert_date) = 2017 AND balanceType = 'Debit' ")
-            ->get();
+        $graphData = new GraphRepository();
+        $pieData = $graphData->pie($id);
+        $barData = $graphData->bar();
 
         $barDataKeyAndValue = $barData->pluck('barSum', 'barMonth');
 
