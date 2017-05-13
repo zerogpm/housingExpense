@@ -99,14 +99,14 @@
                                 </tr>
                                 @foreach( $transactions as $transaction)
                                     <tr>
-                                        <td>$ {{ $transaction->amount }}</td>
+                                        <td>{{ $transaction->amount }}</td>
                                         <td>{{ $transaction->balanceType }}</td>
                                         <td>{{ $transaction->description }}</td>
                                         <td>{{ $transaction->insert_date->format('Y-m-d') }}</td>
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td>Total: $ {{ $totalAmount }}</td>
+                                    <td>Total: {{ $totalAmount }}</td>
                                 </tr>
                             </table>
                         </div>

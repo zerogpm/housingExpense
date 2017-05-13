@@ -124,7 +124,7 @@ class PropertyController extends BackendController
         $transactions = (new RecordSearch)->search($term, $id, $this->limit);
         $credit = (Double)Transaction::where('balanceType', 'Credit')->sum('amount');
         $debit = (Double)Transaction::where('balanceType', 'Debit')->sum('amount');
-        $totalAmount = $debit - $credit;
+        $totalAmount = sprintf('$ %s', number_format($debit - $credit, 2));
 
         return view('property.record', compact('transactions', 'id', 'totalAmount'));
     }

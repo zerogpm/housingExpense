@@ -25,6 +25,7 @@
                         <p>
                             1. Date time have been fixed. Instead of 2017-12-20 00:00:00, 2017-12-20 will be presented.<br/>
                             2. Email will be sent if you lose your password.
+                            3. Money format is using US standard now.
                         </p>
                     </div>
 
