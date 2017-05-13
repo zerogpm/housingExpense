@@ -18,6 +18,16 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
+
+                    <div class="callout callout-info">
+                        <h4>Update! 2017/05/12</h4>
+
+                        <p>
+                            1. Date time have been fixed. Instead of 2017-12-20 00:00:00, 2017-12-20 will be presented.<br/>
+                            2. Email will be sent if you lose your password.
+                        </p>
+                    </div>
+
                     <div class="box">
                         <!-- /.box-header -->
                         <div class="box-body ">
