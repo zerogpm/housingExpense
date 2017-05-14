@@ -5,7 +5,7 @@ use App\Model\Transaction;
 
 class RecordSearch {
     
-    public function search($term, $id, $limit)
+    public function search($term, $id, $limit, $year)
     {
         return Transaction::where(function($query) use ($term, $id) {
             $keywords = '%' . $term . '%';
@@ -15,6 +15,7 @@ class RecordSearch {
             $query->orWhere("insert_date", 'LIKE', $keywords);
         })
             ->where('property_id', $id)
+            ->whereRaw('year(insert_date) =' . $year)
             ->orderBy('insert_date', 'desc')
             ->paginate($limit);
     }

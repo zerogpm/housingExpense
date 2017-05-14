@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Model\Category;
 use App\Model\Property;
 use App\Model\Transaction;
+use App\Queries\YearRecord;
+use App\Repositories\TransactionRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyRequest;
 use Illuminate\Support\Facades\Crypt;
@@ -120,12 +122,21 @@ class PropertyController extends BackendController
 
     public function record(Request $request, $id)
     {
+        $year = Carbon::now()->format('Y');
+
+        if ($request->selectedYear != 'none' && $request->selectedYear != null) {
+            $year = $request->selectedYear;
+        }
+
         $term = $request->term;
-        $transactions = (new RecordSearch)->search($term, $id, $this->limit);
+        $transactions = (new RecordSearch)->search($term, $id, $this->limit, $year);
+        $yearListing = (new YearRecord)->yearList();
         $credit = (Double)Transaction::where('balanceType', 'Credit')->sum('amount');
         $debit = (Double)Transaction::where('balanceType', 'Debit')->sum('amount');
         $totalAmount = sprintf('$ %s', number_format($debit - $credit, 2));
 
-        return view('property.record', compact('transactions', 'id', 'totalAmount'));
+        //$searchYears = (new TransactionRepository)->selectYears('2017');
+
+        return view('property.record', compact('transactions', 'id', 'totalAmount','yearListing'));
     }
 }

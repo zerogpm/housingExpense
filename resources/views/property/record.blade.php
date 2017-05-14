@@ -23,7 +23,6 @@
             </section>
         </section>
 
-
         <!-- Main content -->
         <section class="content">
             <div class="box box-primary">
@@ -34,43 +33,18 @@
                     <a class="btn btn-app" href="{{ route('property.show', [$id]) }}">
                         <i class="fa fa-mail-reply"></i> Go Back
                     </a>
-                    <a class="btn btn-app">
-                        <i type="button" class="fa fa-upload" data-toggle="modal" data-target="#category">
-                        </i> Add Categories
-                    </a>
-                    <a class="btn btn-app">
-                        <i class="fa fa-repeat"></i> Repeat
-                    </a>
-                    <a class="btn btn-app">
-                        <i class="fa fa-pause"></i> Pause
-                    </a>
-                    <a class="btn btn-app">
-                        <i class="fa fa-save"></i> Save
-                    </a>
-                    <a class="btn btn-app">
-                        <span class="badge bg-yellow">22</span>
-                        <i class="fa fa-bullhorn"></i> Notifications
-                    </a>
-                    <a class="btn btn-app">
-                        <span class="badge bg-green">300</span>
-                        <i class="fa fa-barcode"></i> Products
-                    </a>
-                    <a class="btn btn-app">
-                        <span class="badge bg-purple">891</span>
-                        <i class="fa fa-users"></i> Users
-                    </a>
-                    <a class="btn btn-app">
-                        <span class="badge bg-teal">67</span>
-                        <i class="fa fa-inbox"></i> Orders
-                    </a>
-                    <a class="btn btn-app">
-                        <span class="badge bg-aqua">12</span>
-                        <i class="fa fa-envelope"></i> Inbox
-                    </a>
-                    <a class="btn btn-app">
-                        <span class="badge bg-red">531</span>
-                        <i class="fa fa-heart-o"></i> Likes
-                    </a>
+
+
+                    <div>
+                        <form class="js-form-select" action="{{ route("property.record", [$id])}}">
+                            <select name="selectedYear" class="form-control" style="margin-bottom: 10px" id="selectedYear">
+                                <option value="none">Select a Year</option>
+                                @foreach($yearListing as $list)
+                                    <option value="{{ $list->yearList }}" <?php if (Request::get('selectedYear') == $list->yearList) echo 'selected="selected"'; ?> >{{ $list->yearList }}</option>
+                                @endforeach
+                            </select>
+                        </form>
+                    <div>
 
                     <div class="box">
                         <div class="box-header">
@@ -128,5 +102,5 @@
     <script src="/backend/js/lib/bootstrap-datepicker.js"></script>
     <script src="/backend/js/lib/select2.full.min.js"></script>
     <script src="/backend/js/lib/parsley.min.js"></script>
-    <script src="/backend/js/custom.js"></script>
+    <script src="/backend/js/property/selectYear.js"></script>
 @endsection

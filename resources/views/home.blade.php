@@ -20,12 +20,13 @@
                 <div class="col-xs-12">
 
                     <div class="callout callout-info">
-                        <h4>Update! 2017/05/12</h4>
+                        <h4>Update! 2017/05/14</h4>
 
                         <p>
                             1. Date time have been fixed. Instead of 2017-12-20 00:00:00, 2017-12-20 will be presented.<br/>
-                            2. Email will be sent if you lose your password.
-                            3. Money format is using US standard now.
+                            2. Email will be sent if you lose your password.<br />
+                            3. Money format is using US standard now.<br />
+                            4. Add Year Filter at Record Section, Now you can filter by years.
                         </p>
                     </div>
 
