@@ -86,7 +86,7 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix">
-                            {{ $transactions->links() }}
+                            {{ $transactions->appends(['selectedYear' => $year])->links() }}
                         </div>
                     </div>
                     <!-- /.box -->
