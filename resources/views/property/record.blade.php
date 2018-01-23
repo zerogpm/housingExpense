@@ -13,7 +13,7 @@
             <section class="content-header">
                 <h1>
                     Housing Details
-                    <small>#007612</small>
+                    <small>#007622</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Property</a></li>
@@ -33,7 +33,6 @@
                     <a class="btn btn-app" href="{{ route('property.show', [$id]) }}">
                         <i class="fa fa-mail-reply"></i> Go Back
                     </a>
-
 
                     <div>
                         <form class="js-form-select" action="{{ route("property.record", [$id])}}">
@@ -77,6 +76,7 @@
                                         <td>{{ $transaction->balanceType }}</td>
                                         <td>{{ $transaction->description }}</td>
                                         <td>{{ $transaction->insert_date->format('Y-m-d') }}</td>
+                                        <td><a ref="#" class="btn btn-danger">Edit</a></td>
                                     </tr>
                                 @endforeach
                                 <tr>
