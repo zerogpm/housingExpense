@@ -20,7 +20,7 @@
                 <div class="col-xs-12">
 
                     <div class="callout callout-info">
-                        <h4>Update! 2017/05/14</h4>
+                        <h4>Update! 2018/05/15</h4>
 
                         <p>
                             1. Date time have been fixed. Instead of 2017-12-20 00:00:00, 2017-12-20 will be presented.<br/>
