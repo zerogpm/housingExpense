@@ -5,7 +5,7 @@
     - name: deploy to server
       become: true
       git:
-        repo: "repo: "https://{{ githubuser | urlencode }}:{{ githubpassword }}@github.com/zerogpm/housingExpense.git"
+        repo: "https://{{ githubuser | urlencode }}:{{ githubpassword }}@github.com/zerogpm/housingExpense.git"
         dest: "/root/www/property"
         force: yes
         version: master
