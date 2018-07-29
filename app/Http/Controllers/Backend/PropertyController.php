@@ -131,14 +131,7 @@ class PropertyController extends BackendController
         $term = $request->term;
         $transactions = (new RecordSearch)->search($term, $id, $this->limit, $year);
         $yearListing = (new YearRecord)->yearList();
-        $credit = (Double)Transaction::where('balanceType', 'Credit')
-            ->where('property_id', $id)
-            ->sum('amount');
-        $debit = (Double)Transaction::where('balanceType', 'Debit')
-            ->where('property_id', $id)
-            ->sum('amount');
-        $totalAmount = sprintf('$ %s', number_format($debit - $credit, 2));
 
-        return view('property.record', compact('transactions', 'id', 'totalAmount','yearListing', 'year'));
+        return view('property.record', compact('transactions', 'id','yearListing', 'year'));
     }
 }

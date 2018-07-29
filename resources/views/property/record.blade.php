@@ -43,7 +43,7 @@
                                 @endforeach
                             </select>
                         </form>
-                    <div>
+                    </div>
 
                     <div class="box">
                         <div class="box-header">
@@ -79,9 +79,6 @@
                                         <td><a ref="#" class="btn btn-danger">Edit</a></td>
                                     </tr>
                                 @endforeach
-                                <tr>
-                                    <td>Total: {{ $totalAmount }}</td>
-                                </tr>
                             </table>
                         </div>
                         <!-- /.box-body -->
