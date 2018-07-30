@@ -34,6 +34,10 @@ Route::get('/property/record/{id}', [
     'uses' => 'Backend\PropertyController@record'
 ]);
 
+Route::get('/property/record/edit/{transaction}', 'Backend\PropertyController@editRecord')->name('property.record.edit');
+Route::patch('/property/record/update/{transaction}', 'Backend\PropertyController@updateRecord')->name('property.record.update');
+
+
 //Transaction
 
 Route::post('/transaction/save', [

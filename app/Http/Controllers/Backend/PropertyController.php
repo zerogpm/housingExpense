@@ -134,4 +134,20 @@ class PropertyController extends BackendController
 
         return view('property.record', compact('transactions', 'id','yearListing', 'year'));
     }
+
+    public function editRecord(Transaction $transaction)
+    {
+        return view('property.edit', compact('transaction'));
+    }
+
+    public function updateRecord(Request $request, Transaction $transaction)
+    {
+        $transaction->amount = $request->get('amount', $transaction->amount);
+        $transaction->balanceType = $request->get('balanceType', $transaction->balanceType);
+        $transaction->description = $request->get('description', $transaction->description);
+        $transaction->insert_date = $request->get('insert_date', $transaction->insert_date);
+        $transaction->save();
+        session()->flash('message', 'You just successfully update a record!');
+        return redirect()->back();
+    }
 }

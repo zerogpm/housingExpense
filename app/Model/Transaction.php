@@ -16,9 +16,4 @@ class Transaction extends Model
     {
         $query->where('property_id', '=', $id);
     }
-    
-    public function getAmountAttribute($value)
-    {
-        return sprintf('$ %s', number_format($value, 2));
-    }
 }

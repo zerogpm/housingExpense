@@ -72,11 +72,11 @@
                                 </tr>
                                 @foreach( $transactions as $transaction)
                                     <tr>
-                                        <td>{{ $transaction->amount }}</td>
+                                        <td>$ {{ $transaction->amount }}</td>
                                         <td>{{ $transaction->balanceType }}</td>
                                         <td>{{ $transaction->description }}</td>
                                         <td>{{ $transaction->insert_date->format('Y-m-d') }}</td>
-                                        <td><a ref="#" class="btn btn-danger">Edit</a></td>
+                                        <td><a href="{{ route('property.record.edit', [$transaction->id]) }}" class="btn btn-danger">Edit</a></td>
                                     </tr>
                                 @endforeach
                             </table>
